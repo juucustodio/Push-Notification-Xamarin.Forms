@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Com.OneSignal;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,11 +15,13 @@ namespace DemoNotification
             InitializeComponent();
 
             MainPage = new DemoNotification.MainPage();
+
+            OneSignal.Current.StartInit("Insert OneSignal App ID here").EndInit();
         }
 
         protected override void OnStart()
         {
-            // Handle when your app starts
+            OneSignal.Current.RegisterForPushNotifications();
         }
 
         protected override void OnSleep()

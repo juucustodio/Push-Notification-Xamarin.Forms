@@ -1,5 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.demonotification.android" android:installLocation="auto">
 	<uses-sdk android:minSdkVersion="15" />
-	<application android:label="DemoNotification.Android"></application>
+  <permission android:name="com.demonotification.android.permission.C2D_MESSAGE" android:protectionLevel="signature" />
+  <uses-permission android:name="com.demonotification.android.permission.C2D_MESSAGE" />
+	<application android:label="DemoNotification.Android">
+    <receiver android:name="com.onesignal.GcmBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+      <intent-filter>
+        <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+        <category android:name="com.demonotification.android" />
+      </intent-filter>
+    </receiver>
+  </application>
 </manifest>

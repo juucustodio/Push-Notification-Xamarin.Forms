@@ -6,6 +6,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using Com.OneSignal;
 
 namespace DemoNotification.Droid
 {
@@ -18,6 +19,8 @@ namespace DemoNotification.Droid
             ToolbarResource = Resource.Layout.Toolbar;
 
             base.OnCreate(bundle);
+
+            OneSignal.Current.StartInit("Insert OneSignal App ID here").EndInit();
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
             LoadApplication(new App());
