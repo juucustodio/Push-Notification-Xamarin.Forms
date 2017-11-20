@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-
+using Com.OneSignal;
 using Foundation;
 using UIKit;
 
@@ -24,6 +24,8 @@ namespace DemoNotification.iOS
         {
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
+
+            OneSignal.Current.StartInit("Insert OneSignal App ID here").EndInit();
 
             return base.FinishedLaunching(app, options);
         }
